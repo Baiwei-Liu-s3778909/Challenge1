@@ -20,4 +20,8 @@ public class ItemDao
     {
         return list;
     }
+
+    public void addItem(Item item) {
+        list.getItemList().add(item);
+    }
 }
