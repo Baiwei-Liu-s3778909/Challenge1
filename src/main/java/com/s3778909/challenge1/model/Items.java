@@ -7,14 +7,14 @@ public class Items
 {
     private List<Item> itemList;
 
-    public List<Item> getTeacherList() {
+    public List<Item> getItemList() {
         if(itemList == null) {
             itemList = new ArrayList<>();
         }
         return itemList;
     }
 
-    public void setEmployeeList(List<Item> teacherList) {
-        this.itemList = teacherList;
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 }
