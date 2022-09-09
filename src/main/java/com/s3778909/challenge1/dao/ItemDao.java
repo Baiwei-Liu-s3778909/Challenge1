@@ -16,5 +16,8 @@ public class ItemDao
         list.getItemList().add(new Item("2", "Computer", "good computer", "computer.jpg",2213));
         list.getItemList().add(new Item("3", "Phone", "good phone", "titanic.jpg",2142));
     }
-
+    public Items getAllItems()
+    {
+        return list;
+    }
 }
