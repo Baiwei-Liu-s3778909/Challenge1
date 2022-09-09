@@ -16,6 +16,15 @@ public class ItemDao
         list.getItemList().add(new Item("2", "Computer", "good computer", "computer.jpg",2213));
         list.getItemList().add(new Item("3", "Phone", "good phone", "titanic.jpg",2142));
     }
+
+    public Item getItemById(String id){
+        for(Item i : list.getItemList()){
+            if(i.getId().equals(id)){
+                return i;
+            }
+        }
+        return null;
+    }
     public Items getAllItems()
     {
         return list;

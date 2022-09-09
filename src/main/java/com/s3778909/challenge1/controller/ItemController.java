@@ -1,6 +1,7 @@
 package com.s3778909.challenge1.controller;
 
 import com.s3778909.challenge1.dao.ItemDao;
+import com.s3778909.challenge1.exception.ItemNotFoundException;
 import com.s3778909.challenge1.model.Item;
 import com.s3778909.challenge1.model.Items;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,17 @@ public class ItemController
     {
         return itemDao.getAllItems();
     }
+
+    @GetMapping(path="/{id}", produces = "application/json")
+    public Item getOneItem(@PathVariable("id") String id)
+    {
+        Item res = itemDao.getItemById(id);
+        if(res == null){
+            throw new ItemNotFoundException();
+        }
+        return res;
+    }
+
     @PostMapping(path= "/", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Object> addItem(
             @RequestHeader(name = "X-COM-PERSIST", required = false) String headerPersist,
