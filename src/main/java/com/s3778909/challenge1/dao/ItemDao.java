@@ -30,6 +30,19 @@ public class ItemDao
         return list;
     }
 
+    public boolean updateItem(Item item){
+        for(Item i : list.getItemList()){
+            if(i.getId().equals(item.getId())){
+                i.setDesc(item.getDesc());
+                i.setPrice(item.getPrice());
+                i.setTitle(item.getTitle());
+                i.setImagePath(item.getImagePath());
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void addItem(Item item) {
         list.getItemList().add(item);
     }
