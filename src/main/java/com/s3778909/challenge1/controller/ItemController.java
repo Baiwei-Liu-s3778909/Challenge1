@@ -34,6 +34,15 @@ public class ItemController
         return res;
     }
 
+    @DeleteMapping(path="/{id}", produces = "application/json")
+    public void deleteItem(@PathVariable("id") String id)
+    {
+        boolean res = itemDao.deleteItem(id);
+        if(!res){
+            throw new ItemNotFoundException();
+        }
+    }
+
     @PutMapping(path="/{id}", produces = "application/json")
     public void updateItem(@PathVariable("id") String id, @RequestBody Item item)
     {

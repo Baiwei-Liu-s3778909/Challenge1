@@ -25,6 +25,20 @@ public class ItemDao
         }
         return null;
     }
+
+    public boolean deleteItem(String id){
+        Item item = null;
+        for(Item i : list.getItemList()){
+            if(i.getId().equals(id)){
+                item = i;
+            }
+        }
+        if(item == null){
+            return false;
+        }
+        list.getItemList().remove(item);
+        return true;
+    }
     public Items getAllItems()
     {
         return list;
