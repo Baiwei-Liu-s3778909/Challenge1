@@ -34,6 +34,16 @@ public class ItemController
         return res;
     }
 
+    @PutMapping(path="/{id}", produces = "application/json")
+    public void updateItem(@PathVariable("id") String id, @RequestBody Item item)
+    {
+        item.setId(id);
+        boolean res = itemDao.updateItem(item);
+        if(!res){
+            throw new ItemNotFoundException();
+        }
+    }
+
     @PostMapping(path= "/", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Object> addItem(
             @RequestHeader(name = "X-COM-PERSIST", required = false) String headerPersist,
